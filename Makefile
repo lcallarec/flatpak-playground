@@ -1,8 +1,10 @@
 SHELL :=/usr/bin/env bash
 
+HOST_GTK_VERSION := $(shell pkg-config --modversion gtk+-3.0 | cut -d'.' -f1,2,3)
+
 GTK_VERSION := $(GTK_VERSION)
 ifndef GTK_VERSION
-        GTK_VERSION=3.24
+	GTK_VERSION=3.24
 endif
 
 EXEC:all
@@ -41,3 +43,4 @@ install-lcallarec:
 
 run:
 	flatpak run net.lcallarec.Hello
+	echo "... And the HOST Gtk+ version is " $(HOST_GTK_VERSION)
