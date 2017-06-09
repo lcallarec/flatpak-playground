@@ -1,0 +1,15 @@
+---
+dist: trusty
+sudo: required
+
+language: c
+
+services:
+  - docker
+
+before_install:
+  - docker pull lcallarec/flatpak-gnome
+  - docker run --privileged -v $PWD:/build:rw lcallarec/flatpak-gnome /bin/bash -c "apt-get install build-essential"
+
+script:
+  - docker run --privileged -v $PWD:/build:rw lcallarec/flatpak-gnome /bin/bash -c "cd /build && make"
