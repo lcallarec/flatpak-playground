@@ -2,9 +2,9 @@ SHELL :=/usr/bin/env bash
 
 HOST_GTK_VERSION := $(shell pkg-config --modversion gtk+-3.0 | cut -d'.' -f1,2,3)
 
-GTK_VERSION := $(GTK_VERSION)
-ifndef GTK_VERSION
-	GTK_VERSION=3.24
+RUNTIME_VERSION := $(RUNTIME_VERSION)
+ifndef RUNTIME_VERSION
+	RUNTIME_VERSION=3.24
 endif
 
 EXEC:all
@@ -15,7 +15,7 @@ install-gnome-repo:
 	flatpak remote-add --if-not-exists gnome https://sdk.gnome.org/gnome.flatpakrepo
 
 install-plateform-sdk:
-	flatpak install gnome org.gnome.Sdk//$(GTK_VERSION) org.gnome.Platform//$(GTK_VERSION)
+	flatpak install gnome org.gnome.Sdk//$(RUNTIME_VERSION) org.gnome.Platform//$(RUNTIME_VERSION)
 
 remove-intermediate-repositories:
 	-rm -rf Hello hello-repo
@@ -23,7 +23,7 @@ remove-intermediate-repositories:
 	-flatpak uninstall net.lcallarec.Hello/x86_64/master --user
 
 build-init:
-	flatpak build-init Hello net.lcallarec.Hello org.gnome.Sdk//$(GTK_VERSION) org.gnome.Platform//$(GTK_VERSION)
+	flatpak build-init Hello net.lcallarec.Hello org.gnome.Sdk//$(RUNTIME_VERSION) org.gnome.Platform//$(RUNTIME_VERSION)
 
 make:
 	cd src && flatpak build ../Hello make && cd -
