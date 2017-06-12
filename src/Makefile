@@ -10,6 +10,3 @@ compile:
 install:
 	mkdir -p /app/bin
 	mv hello /app/bin/
-	echo 'echo WHIZZZZZ!' > hee
-	chmod +x hee
-	mv hee /app/bin/
