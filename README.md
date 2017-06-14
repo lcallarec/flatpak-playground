@@ -13,3 +13,8 @@ make
 # Where $RUNTIME_VERSION is 3.16, 3.18, 3.20, 3.22 or 3.24
 make RUNTIME_VERSION=$RUNTIME_VERSION
 ```
+
+Run the playground application :
+```bash
+make run
+```

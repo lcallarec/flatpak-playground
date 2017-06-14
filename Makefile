@@ -9,7 +9,7 @@ endif
 
 EXEC:all
 
-all: install-gnome-repo install-plateform-sdk remove-intermediate-repositories build-init make build-finish build-export install-remote install-lcallarec run
+all: install-gnome-repo install-plateform-sdk remove-intermediate-repositories build-init build build-finish build-export install-remote install-lcallarec
 
 install-gnome-repo:
 	flatpak remote-add --if-not-exists gnome https://sdk.gnome.org/gnome.flatpakrepo
@@ -25,8 +25,9 @@ remove-intermediate-repositories:
 build-init:
 	flatpak build-init Hello net.lcallarec.Hello org.gnome.Sdk//$(RUNTIME_VERSION) org.gnome.Platform//$(RUNTIME_VERSION)
 
-make:
-	cd src && flatpak build ../Hello make && cd -
+build:
+	cd src && flatpak build ../Hello make
+	cd ..
 
 build-finish:
 	flatpak build-finish Hello --socket=x11 wayland --share=network --command=hello
