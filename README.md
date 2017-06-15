@@ -1,6 +1,8 @@
 # Flatpak-playground
 
-As a reminder for me, but hopefully a resource to learn __[Flatpak](http://flatpak.org/)__, a simple GTK3+ application that can be run with different runtimes & sdk.
+[![Build Status](https://travis-ci.org/lcallarec/flatpak-playground.svg?branch=master)](https://travis-ci.org/lcallarec/flatpak-playground)
+
+As a reminder for me, but hopefully also a resource to introduce to __[Flatpak](http://flatpak.org/)__, here's a simple GTK3+ application that can be run with different runtimes & sdk.
 
 ```bash
 git clone git@github.com:lcallarec/flatpak-playground.git
